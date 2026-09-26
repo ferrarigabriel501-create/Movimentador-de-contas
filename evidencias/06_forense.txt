@@ -1,5 +1,5 @@
-﻿Agora vocÛ estß conectado ao banco de dados "movimentador_contas" como usußrio "postgres".
-=== Autoria, instante e mudan├ºas ===
+Agora vocÛ estß conectado ao banco de dados "movimentador_contas" como usußrio "postgres".
+=== Autoria, instante e mudanças ===
  id | session_actor  |        transaction_at        |          occurred_at          |   table_name    | operation | codigo_anterior | codigo_atual | setor_anterior | setor_novo |                                                                                      old_row                                                                                       |                                                                                                      new_row                                                                                                       
 ----+----------------+------------------------------+-------------------------------+-----------------+-----------+-----------------+--------------+----------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   1 | usr_auditor_op | 2026-09-26 10:12:28.70624-04 | 2026-09-26 10:12:28.72049-04  | movimentacoes   | I         |                 |              |                |            |                                                                                                                                                                                    | {"id": 3, "conta_id": 1, "observacao": "Transferencia autorizada para Central de Guias", "ocorrido_em": "2026-09-26T10:12:28.718801-04:00", "setor_origem_id": 1, "setor_destino_id": 2, "usuario_executor_id": 1}
@@ -14,13 +14,13 @@
  FAT-2026-001  |              2 |            3 |               1 |                2 | Transferencia autorizada para Central de Guias | usr_auditor_op | 2026-09-26 10:12:28.72049-04 | t
 (3 linhas)
 
-=== Hist├│rico carregado antes da cria├º├úo das triggers n├úo ter├í trilha retrospectiva ===
+=== Histórico carregado antes da criação das triggers não terá trilha retrospectiva ===
  carga_inicial | novos_movimentos 
 ---------------+------------------
              2 |                1
 (1 linha)
 
-=== Aus├¬ncia de UPDATE/DELETE em movimenta├º├Áes durante os testes ===
+=== Ausência de UPDATE/DELETE em movimentações durante os testes ===
  eventos_de_alteracao_ou_exclusao 
 ----------------------------------
                                 0
