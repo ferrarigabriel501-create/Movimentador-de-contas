@@ -17,7 +17,6 @@ GRANT USAGE ON ALL SEQUENCES IN SCHEMA workflow TO role_operacional;
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA workflow TO role_admin_workflow;
 GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA workflow TO role_admin_workflow;
 
--- View agregada: acesso da gestão somente a indicadores por setor.
 CREATE VIEW workflow.vw_indicadores_setor WITH (security_barrier=true) AS
 SELECT s.id AS setor_id, s.nome AS setor,
  count(DISTINCT c.id) AS contas_atuais,
@@ -29,7 +28,6 @@ LEFT JOIN workflow.movimentacoes m ON m.setor_destino_id=s.id AND m.conta_id=c.i
 GROUP BY s.id,s.nome;
 GRANT SELECT ON workflow.vw_indicadores_setor TO role_gestao;
 
--- Senhas de demonstração devem ser substituídas antes de usar fora de localhost.
 SET password_encryption = 'scram-sha-256';
 CREATE ROLE usr_auditor_op LOGIN PASSWORD 'Trocar-Auditor-2026!';
 CREATE ROLE usr_coordenador_gestao LOGIN PASSWORD 'Trocar-Gestao-2026!';
