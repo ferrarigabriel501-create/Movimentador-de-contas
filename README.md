@@ -97,5 +97,4 @@ scripts/
 evidencias/
   05_execucao.txt
   06_forense.txt
-  06_forense.txt
 ```
