@@ -95,7 +95,7 @@ scripts/
   05_attack_simulation.sql
   06_forensic_queries.sql
 evidencias/
-  README.md
   05_execucao.txt
+  06_forense.txt
   06_forense.txt
 ```
