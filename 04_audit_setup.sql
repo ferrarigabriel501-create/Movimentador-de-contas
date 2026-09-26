@@ -11,7 +11,7 @@ CREATE TABLE audit.logged_actions (
  new_row jsonb
 );
 REVOKE ALL ON audit.logged_actions FROM PUBLIC;
--- O administrador funcional lê trilhas, mas não edita o log.
+
 GRANT SELECT ON audit.logged_actions TO role_admin_workflow;
 CREATE FUNCTION audit.log_change() RETURNS trigger
 LANGUAGE plpgsql SECURITY DEFINER SET search_path = pg_catalog,audit AS $$
@@ -27,7 +27,7 @@ CREATE TRIGGER audit_contas AFTER INSERT OR UPDATE OR DELETE ON workflow.contas_
  FOR EACH ROW EXECUTE FUNCTION audit.log_change();
 CREATE TRIGGER audit_movimentacoes AFTER INSERT OR UPDATE OR DELETE ON workflow.movimentacoes
  FOR EACH ROW EXECUTE FUNCTION audit.log_change();
--- Impede até a role administrativa funcional de adulterar movimentos anteriores.
+
 CREATE FUNCTION workflow.bloquear_historico() RETURNS trigger
 LANGUAGE plpgsql SECURITY DEFINER SET search_path = pg_catalog AS $$
 BEGIN
@@ -36,10 +36,7 @@ END $$;
 REVOKE ALL ON FUNCTION workflow.bloquear_historico() FROM PUBLIC;
 CREATE TRIGGER bloquear_historico BEFORE UPDATE OR DELETE ON workflow.movimentacoes
  FOR EACH ROW EXECUTE FUNCTION workflow.bloquear_historico();
--- Executar o seed antes deste script: eventos de carga inicial não entram na auditoria.
 
--- Interface operacional de movimentação atômica. SECURITY DEFINER permite atualizar
--- setor atual sem conceder UPDATE diretamente à role operacional.
 CREATE FUNCTION workflow.transferir_conta(p_codigo varchar,p_destino bigint,p_observacao text)
 RETURNS bigint LANGUAGE plpgsql SECURITY DEFINER SET search_path = pg_catalog,workflow AS $$
 DECLARE v_conta workflow.contas_workflow%ROWTYPE;
