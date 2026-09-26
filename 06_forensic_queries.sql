@@ -23,4 +23,3 @@ FROM workflow.movimentacoes;
 \echo '=== Ausência de UPDATE/DELETE em movimentações durante os testes ==='
 SELECT count(*) AS eventos_de_alteracao_ou_exclusao
 FROM audit.logged_actions WHERE table_name='movimentacoes' AND operation IN ('U','D');
--- Erros de permissão ocorrem antes do trigger e devem ser provados pelo terminal/log do PostgreSQL.
