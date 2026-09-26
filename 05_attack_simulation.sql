@@ -1,4 +1,3 @@
--- Requer psql; rode como superusuario local: psql -X -U postgres -d movimentador_contas -f scripts/05_attack_simulation.sql
 \set ON_ERROR_STOP off
 \echo '=== A: tentativa de UPDATE indevido; esperado ERROR permission denied ==='
 \connect movimentador_contas usr_auditor_op localhost 5432
