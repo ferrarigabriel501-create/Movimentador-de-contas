@@ -1,6 +1,6 @@
-﻿=== A: tentativa de UPDATE indevido; esperado ERROR permission denied ===
+=== A: tentativa de UPDATE indevido; esperado ERROR permission denied ===
 Agora vocÛ estß conectado ao banco de dados "movimentador_contas" como usußrio "usr_auditor_op".
-psql.exe : psql:scripts/05_attack_simulation.sql:5: ERRO:  permiss├úo negada para tabela movimentacoes
+psql.exe : psql:scripts/05_attack_simulation.sql:5: ERRO:  permissão negada para tabela movimentacoes
 No linha:1 caractere:1
 + & $psql -X -U postgres -d movimentador_contas -f scripts/05_attack_si ...
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -8,17 +8,17 @@ No linha:1 caractere:1
     + FullyQualifiedErrorId : NativeCommandError
  
 === A: tentativa de DELETE indevido; esperado ERROR permission denied ===
-psql:scripts/05_attack_simulation.sql:7: ERRO:  permiss├úo negada para tabela movimentacoes
+psql:scripts/05_attack_simulation.sql:7: ERRO:  permissão negada para tabela movimentacoes
 === B: leitura de credencial; esperado ERROR permission denied ===
-psql:scripts/05_attack_simulation.sql:9: ERRO:  permiss├úo negada para tabela usuarios
-=== C: opera├º├úo v├ílida; esperado INSERT e trilha de auditoria ===
+psql:scripts/05_attack_simulation.sql:9: ERRO:  permissão negada para tabela usuarios
+=== C: operação válida; esperado INSERT e trilha de auditoria ===
  transferir_conta 
 ------------------
                 3
 (1 linha)
 
 INSERT 0 1
-=== Gest├úo: view acess├¡vel, tabela base negada ===
+=== Gestão: view acessível, tabela base negada ===
 Agora vocÛ estß conectado ao banco de dados "movimentador_contas" como usußrio "usr_coordenador_gestao".
  setor_id |      setor       | contas_atuais | movimentacoes_recebidas | horas_ate_movimentacao_media 
 ----------+------------------+---------------+-------------------------+------------------------------
@@ -28,7 +28,7 @@ Agora vocÛ estß conectado ao banco de dados "movimentador_contas" como usußri
         4 | Recurso de Glosa |             1 |                       1 |                       168.00
 (4 linhas)
 
-psql:scripts/05_attack_simulation.sql:18: ERRO:  permiss├úo negada para tabela contas_workflow
+psql:scripts/05_attack_simulation.sql:18: ERRO:  permissão negada para tabela contas_workflow
 === DBA: leitura da auditoria ===
 Agora vocÛ estß conectado ao banco de dados "movimentador_contas" como usußrio "usr_dba_admin".
  id |   table_name    | session_actor  | operation |          occurred_at          
@@ -36,4 +36,3 @@ Agora vocÛ estß conectado ao banco de dados "movimentador_contas" como usußri
   1 | movimentacoes   | usr_auditor_op | I         | 2026-09-26 10:12:28.72049-04
   2 | contas_workflow | usr_auditor_op | U         | 2026-09-26 10:12:28.740742-04
 (2 linhas)
-
